@@ -1,7 +1,7 @@
 {
     "name": "rxjs-augment",
-    "version": "1.0.0",
-    "description": "RxJS operators and Browser API wrappers",
+    "version": "1.0.1",
+    "description": "RxJS operators and Browser API Observable wrappers",
     "typings": "./index.d.ts",
     "main": "index.js",
     "repository": {
@@ -12,7 +12,8 @@
         "rxjs",
         "augment",
         "operators",
-        "angular"
+        "angular",
+        "observable"
     ],
     "author": "Christian Alan Lundberg",
     "license": "MIT",
