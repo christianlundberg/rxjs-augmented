@@ -1,13 +1,13 @@
-# RxJS Augment
+# RxJS Augmented
 
 RxJS operators and Browser API wrappers.
 
 ### Installation
 
-To install the latest version of rxjs-augment, simply run:
+To install the latest version of rxjs-augmented, simply run:
 
 ```
-npm install --save rxjs-augment@latest
+npm install --save rxjs-augmented@latest
 ```
 
 Of course it depends on rxjs, so install it if you haven't already:
@@ -40,7 +40,7 @@ Will only emit if the mapped value is distinct from the previous. Useful for Obs
 
 ```javascript
 import { of } from 'rxjs';
-import { select } from 'rxjs-augment/operators';
+import { select } from 'rxjs-augmented/operators';
 
 const source$ = of(1, 2, 2, 1).pipe(select(value => value * 2));
 
@@ -61,7 +61,7 @@ Internally this operator uses the `FileReader` API. Pass it a `File` or a `Blob`
 
 ```javascript
 import { fromEvent } from 'rxjs';
-import { fromBlob } from 'rxjs-augment';
+import { fromBlob } from 'rxjs-augmented';
 
 //For Typescript
 interface HTMLInputEvent extends Event {
@@ -89,6 +89,7 @@ Pass it an instance of Worker and internally it'll setup the listeners and post 
 ```javascript
 //app.ts
 import { fromEvent, of } from  'rxjs';
+import { fromWorker } from 'rxjs-augmented';
 const  button:  HTMLButtonElement  =  document.querySelector('#run-worker');
 
 fromEvent(button, 'click').pipe(
@@ -124,7 +125,7 @@ Observable of the browser's ability to connect to the network.
 ##### Example
 
 ```javascript
-import { online$ } from 'rxjs-augment';
+import { online$ } from 'rxjs-augmented';
 
 //Try connecting and disconnecting
 online$.subscribe(console.log); //true or false

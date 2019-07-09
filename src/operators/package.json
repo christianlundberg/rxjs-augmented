@@ -1,5 +1,5 @@
 {
-    "name": "rxjs-augment/operators",
+    "name": "rxjs-augmented/operators",
     "typings": "./index.d.ts",
     "main": "./index.js",
     "sideEffects": false

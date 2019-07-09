@@ -1,5 +1,5 @@
 {
-    "name": "rxjs-augment",
+    "name": "rxjs-augmented",
     "version": "0.0.1",
     "description": "Rxjs operators and Observable wrappers",
     "main": "index.js",
@@ -14,19 +14,21 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/christianlundberg/rxjs-augment.git"
+        "url": "git+https://github.com/christianlundberg/rxjs-augmented.git"
     },
     "keywords": [
         "rxjs",
-        "augment",
-        "operators"
+        "augmented",
+        "operators",
+        "observable",
+        "angular"
     ],
     "author": "Christian Alan Lundberg",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/christianlundberg/rxjs-augment/issues"
+        "url": "https://github.com/christianlundberg/rxjs-augmented/issues"
     },
-    "homepage": "https://github.com/christianlundberg/rxjs-augment#readme",
+    "homepage": "https://github.com/christianlundberg/rxjs-augmented#readme",
     "devDependencies": {
         "@types/jest": "^24.0.15",
         "babel-jest": "^24.8.0",
