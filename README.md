@@ -19,8 +19,7 @@ npm install --save rxjs
 ## API
 
 -   [Operators](#operators)
-    -   [mapUntilChanged](#mapuntilchanged)
-    -   [mapToUntilChanged](#maptountilchanged)
+    -   [select](#select)
 -   [Creation operators](#creation-operators)
     -   [fromBlob](#fromblob)
     -   [fromWorker](#fromworker)
@@ -33,34 +32,19 @@ npm install --save rxjs
 
 These are pipeable rxjs operators
 
-#### mapUntilChanged
+#### select
 
-This operator wraps the distinctUntilChanged and map operators, since it's quite common to use them together.
+Will only emit if the mapped value is distinct from the previous. Useful for Observable state stores to avoid unnecessary rendering.
 
 ##### Example
 
 ```javascript
 import { of } from 'rxjs';
-import { mapUntilChanged } from 'rxjs-augment/operators';
+import { select } from 'rxjs-augment/operators';
 
-const source$ = of(1, 2, 2, 1).pipe(mapUntilChanged(value => value * 2));
+const source$ = of(1, 2, 2, 1).pipe(select(value => value * 2));
 
 source$.subscribe(console.log); //2, 4, 1
-```
-
-#### mapToUntilChanged
-
-Same as mapUntilChanged, except it wraps the mapTo operator.
-
-##### Example
-
-```javascript
-import { of } from 'rxjs';
-import { mapToUntilChanged } from 'rxjs-augment/operators';
-
-const source$ = of(1, 2, 2, 2, 1).pipe(mapToUntilChanged('value'));
-
-source$.subscribe(console.log); //'value', 'value', 'value'
 ```
 
 ### Creation operators

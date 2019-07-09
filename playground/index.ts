@@ -2,11 +2,11 @@ import { fromEvent, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { fromBlob, fromWorker, online$ } from '../dist';
-import { mapUntilChanged } from '../dist/operators';
+import { select } from '../dist/operators';
 
 const isPrimeNumber = require('prime-number');
 const primeNumberList = require('prime-number/list');
-const source$ = of(1, 2, 2, 1).pipe(mapUntilChanged(value => value * 2));
+const source$ = of(1, 2, 2, 1).pipe(select(value => value * 2));
 
 const workerButton = document.querySelector('#worker');
 const mainButton: HTMLButtonElement = document.querySelector('#main');
