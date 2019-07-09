@@ -30,7 +30,10 @@ fromEvent(fileInput, 'change')
 fromEvent(workerButton, 'click')
     .pipe(
         switchMap(() =>
-            fromWorker(new Worker('./worker.js', { type: 'module' }), null)
+            fromWorker<string>(
+                new Worker('./worker.js', { type: 'module' }),
+                null
+            )
         )
     )
     .subscribe(console.log);

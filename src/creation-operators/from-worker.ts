@@ -1,6 +1,9 @@
 import { Observable } from 'rxjs';
 
-export const fromWorker = (worker: Worker, message: any) => {
+export function fromWorker<T = any>(
+    worker: Worker,
+    message: any
+): Observable<T> {
     return new Observable(observer => {
         if (!(worker instanceof Worker)) {
             observer.error(
@@ -26,4 +29,4 @@ export const fromWorker = (worker: Worker, message: any) => {
             worker.removeEventListener('message', messageListener);
         };
     });
-};
+}

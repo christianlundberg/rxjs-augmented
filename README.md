@@ -40,6 +40,7 @@ This operator wraps the distinctUntilChanged and map operators, since it's quite
 ##### Example
 
 ```javascript
+import { of } from 'rxjs';
 import { mapUntilChanged } from 'rxjs-augment/operators';
 
 const source$ = of(1, 2, 2, 1).pipe(mapUntilChanged(value => value * 2));
@@ -54,6 +55,7 @@ Same as mapUntilChanged, except it wraps the mapTo operator.
 ##### Example
 
 ```javascript
+import { of } from 'rxjs';
 import { mapToUntilChanged } from 'rxjs-augment/operators';
 
 const source$ = of(1, 2, 2, 2, 1).pipe(mapToUntilChanged('value'));
@@ -77,7 +79,7 @@ Internally this operator uses the `FileReader` API. Pass it a `File` or a `Blob`
 import { fromEvent } from 'rxjs';
 import { fromBlob } from 'rxjs-augment';
 
-//For typescript
+//For Typescript
 interface HTMLInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
 }
@@ -101,15 +103,15 @@ Pass it an instance of Worker and internally it'll setup the listeners and post 
 ##### Example
 
 ```javascript
-//app.js
+//app.ts
 import { fromEvent, of } from  'rxjs';
 const  button:  HTMLButtonElement  =  document.querySelector('#run-worker');
 
-//I'm using typescript, but if you're using plain javascript, of course the extension will be .js
 fromEvent(button, 'click').pipe(
 	switchMap(() => {
 		if  (typeof  Worker  !==  'undefined')  {
-			return fromWorker(
+			//If you're using Typescript, you can correctly type the Observable:
+			return fromWorker<string>(
 				new  Worker('./worker.ts', { type: 'module' }),
 				'data for the worker'
 			);
