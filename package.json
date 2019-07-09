@@ -1,0 +1,46 @@
+{
+    "name": "rxjs-augment",
+    "version": "0.0.1",
+    "description": "Rxjs operators and Observable wrappers",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "build": "tsc && npm run copy_package && npm run copy_operators_package && npm run copy_readme && npm run copy_license",
+        "copy_package": "xcopy .\\src\\package.json .\\dist\\ /Y",
+        "copy_operators_package": "xcopy .\\src\\operators\\package.json .\\dist\\operators\\ /Y",
+        "copy_readme": "xcopy .\\README.md .\\dist\\ /Y",
+        "copy_license": "xcopy .\\LICENSE .\\dist\\ /Y",
+        "start": "webpack-dev-server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/christianlundberg/rxjs-augment.git"
+    },
+    "keywords": [
+        "rxjs",
+        "augment",
+        "operators"
+    ],
+    "author": "Christian Alan Lundberg",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/christianlundberg/rxjs-augment/issues"
+    },
+    "homepage": "https://github.com/christianlundberg/rxjs-augment#readme",
+    "devDependencies": {
+        "@types/jest": "^24.0.15",
+        "babel-jest": "^24.8.0",
+        "html-webpack-plugin": "^3.2.0",
+        "jest": "^24.8.0",
+        "jest-marbles": "^2.3.1",
+        "prime-number": "^0.2.2",
+        "rxjs": "~6.4.0",
+        "ts-jest": "^24.0.2",
+        "ts-loader": "^6.0.4",
+        "typescript": "~3.4.3",
+        "webpack": "^4.35.2",
+        "webpack-cli": "^3.3.5",
+        "webpack-dev-server": "^3.7.2",
+        "worker-plugin": "^3.1.0"
+    }
+}

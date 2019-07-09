@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "declaration": true,
+        "outDir": "./dist",
+        "strict": false,
+        "lib": ["es2015", "dom", "es6"]
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "**/__tests__/*"]
+}
