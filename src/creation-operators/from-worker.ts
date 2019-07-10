@@ -2,7 +2,8 @@ import { Observable } from 'rxjs';
 
 export function fromWorker<T = any>(
     worker: Worker,
-    message: any
+    message: any,
+    transfer?: Transferable[]
 ): Observable<T> {
     return new Observable(observer => {
         if (!(worker instanceof Worker)) {
@@ -22,7 +23,7 @@ export function fromWorker<T = any>(
         worker.addEventListener('error', errorListener);
         worker.addEventListener('message', messageListener);
 
-        worker.postMessage(message);
+        worker.postMessage(message, transfer);
 
         return () => {
             worker.removeEventListener('error', errorListener);

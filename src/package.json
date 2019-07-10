@@ -1,6 +1,6 @@
 {
     "name": "rxjs-augmented",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "RxJS operators and Browser API Observable wrappers",
     "typings": "./index.d.ts",
     "main": "index.js",
